@@ -7,7 +7,7 @@ Eu pretendo futuramente adicionar mais ferramentas e mais funções, portanto es
 ### Install:
 
 ```bash
-git clone https://github.com/k-o-g-e-r-u/Paranoia
+git clone https://github.com/k-o-g-e-r-u/Paranoia.git
 python3 Paranoia/paranoia.py
 ```
 
