@@ -415,9 +415,6 @@ apt install searchsploit""")
     install = int(input("Deseja instalar todas as ferramentas? [0/1]"))
     system = os.system("grep -E ""ID_LIKE=debian|ID=arch|ID_Like=arch"" /etc/os-release")
     if install == 0:
-        if "ID_LIKE=arch" or "ID=arch" in system:
-            os.system(f"{install_tools.replace("apt install", "pacman -S")}")
-        else:
             os.system(f"{install_tools}")
     else:
         pass
