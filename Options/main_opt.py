@@ -1,6 +1,6 @@
 import os
 
-man = "Dentro desse diretório tem os man's das ferramentas. Acessa-lá"
+man = "Dentro da pasta da ferramenta tem todos os main's da ferramenta traduzidos em pt-br"
 infos = """
 Ferramentas de Reconhecimento (Discovery)
 
@@ -111,8 +111,6 @@ Dicas Adicionais:
     Priorize as informações mais importantes: Destaque as informações mais relevantes para a equipe de desenvolvimento.
     Seja profissional: Mantenha um tom profissional e respeitoso em todo o relatório.
     Utilize ferramentas de relatório: Existem diversas ferramentas que podem auxiliar na criação de relatórios de bug bounty, como plataformas de bug bounty e ferramentas de gerenciamento de vulnerabilidades."""
-
-
 content = """
 Crie um arquivo e copie esse sitema de anotação:
 
@@ -165,9 +163,7 @@ HOST - Port - banner - OS
 [+] Vulnerability-Analysis
 +========================================+
 HOST | OS | Service | CVE | Exploit"""
-
-
-install_tools = """
+install_debian = """
 apt update -y
 apt upgrade -y
 apt install gccgo-go -y
@@ -259,10 +255,104 @@ apt install leafpad
 apt install jsql -y
 apt install feroxbuster -y
 apt install searchsploit"""
-
-
-def options_install_tools():
-    print("""
+install_arch = """
+sudo pacman -Syu
+curl -O https://blackarch.org/strap.sh
+echo "8c48df016a6037a15e6b48066e0f1dd80922dfc3 strap.sh" | sha1sum -c
+chmod +x strap.sh
+sudo ./strap.sh
+sudo pacman -S blackarch
+sudo pacman -S gcc -y
+sudo pacman -S pipx -y
+pipx ensurepath
+pipx install hackerhelp
+set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+go install -v github.com/tomnomnom/anew@latest 
+mv /root/go/bin/anew /usr/bin
+go install github.com/tomnomnom/gf@latest && mv /root/go/bin/gf /usr/bin/
+mkdir /root/.gf 
+cd /root/.gf
+git clone https://github.com/1ndianl33t/Gf-Patterns
+mv /root/.gf/Gf-Patterns/* /root/.gf
+rm -rf Gf-Patterns
+cp -r $GOPATH/src/github.com/tomnomnom/gf/examples ~/.gf
+go install github.com/tomnomnom/unfurl@latest
+mv /root/go/bin/unfurl /usr/bin
+git clone https://github.com/devanshbatham/paramspider
+cd paramspider
+pip install .
+cd .. 
+rm -rf paramspider
+pip3 install arjun
+GO111MODULE=on go install -v github.com/lc/subjs@latest
+mv /root/go/bin/subjs /usr/bin 
+go install github.com/bp0lr/gauplus@latest
+mv /root/go/bin/gauplus /usr/bin
+pip install waymore
+go install github.com/tomnomnom/waybackurls@latest
+mv /root/go/bin/waybackurls /usr/bin
+wget https://raw.githubusercontent.com/tomnomnom/hacks/master/anti-burl/main.go
+go build main.go 
+rm main.go
+mv main anti-burl
+mv anti-burl /usr/bin
+git clone https://github.com/j3ssie/metabigor.git
+cd metabigor
+go install
+mv /root/go/bin/metabigor /usr/bin
+cd ..
+rm -rf metabigor
+wget https://github.com/assetnote/kiterunner/releases/download/v1.0.2/kiterunner_1.0.2_linux_amd64.tar.gz
+tar -xvf kiterunner_1.0.2_linux_amd64.tar.gz
+mv kr /usr/bin
+rm kiterunner_1.0.2_linux_amd64.tar.gz
+wget https://wordlists-cdn.assetnote.io/rawdata/kiterunner/routes-small.json.tar.gz
+tar -xvf routes-small.json.tar.gz
+rm routes-small.json.tar.gz
+wget https://wordlists-cdn.assetnote.io/data/kiterunner/routes-large.kite.tar.gz
+tar -xvf routes-large.kite.tar.gz 
+rm routes-large.kite.tar.gz 
+mv routes-large.kite /usr/bin
+mv routes-small.json /usr/bin
+git clone https://github.com/gwen001/github-search
+cd github-search
+pip3 install -r requirements.txt
+cd ..
+mv github-search /usr/bin
+git clone https://github.com/obheda12/GitDorker
+cd GitDorker 
+pip3 install -r requirements.txt
+cd ..
+mv GitDorker /usr/bin
+sudo pacman -S ffuf
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+mv /root/go/bin/httpx /usr/bin
+go install github.com/tomnomnom/httprobe@latest
+mv /root/go/bin/httprobe /usr/bin
+wget https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
+unzip aquatone_linux_amd64_1.7.0.zip
+mv aquatone /usr/bin
+rm aquatone_linux_amd64_1.7.0.zip 
+rm LICENSE.txt
+rm README.md
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+mv /root/go/bin/nuclei /usr/bin
+nuclei update-templates
+go install github.com/hahwul/dalfox/v2@latest
+mv /root/go/bin/dalfox /usr/bin
+go install github.com/projectdiscovery/katana/cmd/katana@latest
+mv /root/go/bin/katana /usr/bin
+git clone https://github.com/0x240x23elu/JSScanner.git
+cd JSScanner
+pip3 install -r requirements.txt
+cd ..
+mv JSScanner /usr/bin
+sudo pacman -S jsql-injection -y
+sudo pacman -S feroxbuster -y
+git clone https://github.com/offensive-security/exploitdb.git /opt/exploitdb
+sudo ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit
+searchsploit -u"""
+install_manual = """
 A opção que você selecionou é um manual com todos os comandos que você vai precisar
 executar caso sua máquina não tenha alguma delas instalado!
 
@@ -411,10 +501,17 @@ pip install waymore
 
 [23] Searchsploit
 
-apt install searchsploit""")
+apt install searchsploit"""
+
+def options_install_tools():
+    print(install_manual)
     install = int(input("Deseja instalar todas as ferramentas? [0/1]"))
     if install == 0:
-            os.system(f"{install_tools}")
+            system = int(input("Qual tipo de distro você está usando? | Debian = 0 | Arch = 1 [0/1]"))
+            if system == 0:
+                os.system(f"{install_debian}")
+            else:
+                os.system(f"{install_arch}")
     else:
         pass
 
