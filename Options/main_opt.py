@@ -266,6 +266,7 @@ sudo pacman -S --noconfirm blackarch
 sudo pacman -S --noconfirm gcc 
 sudo pacman -S --noconfirm go
 sudo pacman -S --noconfirm pipx
+sudo pacman -S --noconfirm seclists
 sudo pipx ensurepath
 sudo pipx install hackerhelp
 sudo set -U fish_user_paths $HOME/.local/bin $fish_user_paths
@@ -282,7 +283,6 @@ sudo go install github.com/tomnomnom/unfurl@latest
 sudo mv /root/go/bin/unfurl /usr/bin
 sudo git clone https://github.com/devanshbatham/paramspider
 sudo cd paramspider
-sudo pip install .
 sudo cd .. 
 sudo rm -rf paramspider
 sudo pip3 install arjun
@@ -290,7 +290,7 @@ sudo GO111MODULE=on go install -v github.com/lc/subjs@latest
 sudo mv /root/go/bin/subjs /usr/bin 
 sudo go install github.com/bp0lr/gauplus@latest
 sudo mv /root/go/bin/gauplus /usr/bin
-sudo pip install waymore
+sudo pipx install waymore
 sudo go install github.com/tomnomnom/waybackurls@latest
 sudo mv /root/go/bin/waybackurls /usr/bin
 sudo wget https://raw.githubusercontent.com/tomnomnom/hacks/master/anti-burl/main.go
@@ -346,7 +346,7 @@ sudo go install github.com/projectdiscovery/katana/cmd/katana@latest
 sudo mv /root/go/bin/katana /usr/bin
 sudo git clone https://github.com/0x240x23elu/JSScanner.git
 sudo cd JSScanner
-sudo pip3 install -r requirements.txt
+sudo pipx install -r requirements.txt
 sudo cd ..
 sudo mv JSScanner /usr/bin
 sudo pacman -S --noconfirm jsql-injection
