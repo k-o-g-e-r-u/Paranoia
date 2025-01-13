@@ -351,6 +351,11 @@ sudo cd ..
 sudo mv JSScanner /usr/bin
 sudo pacman -S --noconfirm jsql-injection
 sudo pacman -S --noconfirm feroxbuster
+sudo pacman -S --noconfirm burpsuite
+sudo pacman -Syu
+sudo pacman -Ss openjdk
+sudo pacman -Syu jdk-openjdk
+sudo archlinux-java set java-23-openjdk
 sudo set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 git clone https://github.com/offensive-security/exploitdb.git /opt/exploitdb
 sudo ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit
