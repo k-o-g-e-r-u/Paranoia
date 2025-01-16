@@ -291,6 +291,7 @@ sudo mv /root/go/bin/subjs /usr/bin
 sudo go install github.com/bp0lr/gauplus@latest
 sudo mv /root/go/bin/gauplus /usr/bin
 sudo pipx install waymore
+sudo set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 sudo go install github.com/tomnomnom/waybackurls@latest
 sudo mv /root/go/bin/waybackurls /usr/bin
 sudo wget https://raw.githubusercontent.com/tomnomnom/hacks/master/anti-burl/main.go
